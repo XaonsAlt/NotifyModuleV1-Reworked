@@ -2,6 +2,8 @@ Code for Main Notify Module script:
 ```
 local module = {}
 local TweenService = game.Workspace:WaitForChild("Services"):FindFirstChild("notify"):FindFirstChild("TweenService"):FindFirstChild("Event") -- Replace "notify" with the location of the module
+local NVersion=script:WaitForChild("Version")
+NVersion.Value="V1.03"
 function insertContainer(p)
 	if p == nil then
 		local simpleSuite = Instance.new("ScreenGui")
