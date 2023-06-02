@@ -174,12 +174,11 @@ function module.notify(target,title,text,color,dur)
 					print("Tweening 2 at "..os.clock())
 				else
 					Notification1:TweenSize(UDim2.new(1, 0, 0.1, 0))
-
 					wait(duration)
-
+					
 					Notification1:TweenSize(UDim2.new(0, 0, 0, 0))
 					wait(1.1)
-
+					
 					Notification1:Destroy()
 				end
 				--Rescripted by botwot7024
