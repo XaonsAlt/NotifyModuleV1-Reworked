@@ -1,5 +1,5 @@
 # NotifyModuleV2
-The repo is for SimplynotifiedV1 remake.
+The branch is for Community Driven updates.
 
 Features added that was not before:
 ~Custom colors can be used by sending a table of color values like so:
