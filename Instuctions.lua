@@ -1,5 +1,3 @@
-Script content of the Instructions Script
-```
 if script.Enabled then--Turn off script if enabled for whatever reason
 	script.Enabled=false
 end
@@ -54,5 +52,4 @@ Modified By BotWot7024
 		Please report any bugs you find to BotWot7024 (Discord Support can be found in our games, you will need RobloxVerfiy!)
 
 --]]
-```
 
