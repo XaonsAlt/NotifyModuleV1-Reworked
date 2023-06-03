@@ -1,9 +1,8 @@
-Code for Main Notify Module script:
-```
 local module = {}
 local TweenService = game.Workspace:WaitForChild("Services"):FindFirstChild("notify"):FindFirstChild("TweenService"):FindFirstChild("Event") -- Replace "notify" with the location of the module
 local NVersion=script:WaitForChild("Version")
-NVersion.Value="V1.03"
+NVersion.Value="V1.02"
+print("Started notify Module")
 function insertContainer(p)
 	if p == nil then
 		local simpleSuite = Instance.new("ScreenGui")
@@ -195,20 +194,3 @@ function module.notify(target,title,text,color,dur)
 end
 
 return module
-```
-
-Code for the TweenSerive(Notify will still work with it missing)
-Ps: this is a regular script(--Insert AssetName Here--)
-```
-script.Event.Event:Connect(function(NotifyFrame, StartSize, StartDur, EndSize, EndDur, DebugTime)
-	print("StartingTween at "..DebugTime)
-	NotifyFrame:TweenSize(UDim2.new(1, 0, 0.1, 0))
-	wait(StartDur)
-
-	NotifyFrame:TweenSize(UDim2.new(0, 0, 0, 0))
-	wait(EndDur)
-
-	NotifyFrame:Destroy()
-	print("FinishedTween at "..os.clock())
-end)
-```
