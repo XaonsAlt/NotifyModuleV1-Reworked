@@ -2,7 +2,7 @@
 local module = {}
 local TweenService = game.Workspace:WaitForChild("Services"):FindFirstChild("notify"):FindFirstChild("TweenService"):FindFirstChild("Event") -- Replace "notify" with the location of the module
 local NVersion=script:WaitForChild("Version")
-NVersion.Value="V1.02"
+NVersion.Value="V1.03"
 print("Started notify Module")
 function insertContainer(p)
 	if p == nil then
@@ -48,6 +48,7 @@ end
 
 insertContainer()
 
+--Preset colors
 local colors = {
 	NILColor = Color3.fromRGB(79, 79, 79),
 	alert = Color3.fromRGB(255, 105, 105),
@@ -72,41 +73,30 @@ function module.notify(target,title,text,color,dur)
 		--Rescripted by botwot7024 (Below this line)
 		if title ~= nil and text ~= nil and color ~= nil then
 			local selectedColor = colors.default
-			if type(color)=="string" then
-
+			if type(color)=="string" then--Only here for backwards compatibility(old format)
 				if string.lower(color) == "alert" or string.lower(color) == "success" or string.lower(color) == "warning" or string.lower(color) == "info" or string.lower(color) == "default" then
-
 					if string.lower(color) == "alert" then
 						selectedColor = colors.alert
-					end
-
-					if string.lower(color) == "success" then
+					elseif string.lower(color) == "success" then
 						selectedColor = colors.success
-					end
-
-					if string.lower(color) == "warning" then
+					elseif string.lower(color) == "warning" then
 						selectedColor = colors.warning
-					end
-					if string.lower(color) == "info" then
+					elseif string.lower(color) == "info" then
 						selectedColor = colors.info
-					end
-					if string.lower(color) == "default" then
+					elseif string.lower(color) == "default" then
 						selectedColor = colors.default
 					end
-				else
+				else--if String but not table or know preset then default to NIL color
 					selectedColor = colors.NILColor
 				end	
-
-				
-			elseif type(color)=="table" then
-				--The New DefaultColor System
-				if color.R==nil or color.G==nil or color.B==nil then
+			elseif type(color)=="table" then--If new format then
+				if color.R==nil or color.G==nil or color.B==nil then--The New DefaultColor System
 					selectedColor = colors.NILColor
 				else
 					selectedColor = Color3.fromRGB(math.clamp(color.R*255,0,255), math.clamp(color.G*255,0,255), math.clamp(color.B*255,0,255))
 				end
-			else--if no color defined
-				selectedColor = colors.NILColor
+			else--if no color defined at all default to "Default"
+				selectedColor = colors.default
 			end
 			--Rescripted by botwot7024 (Above this line)
 			local notification_number = 1
@@ -116,9 +106,7 @@ function module.notify(target,title,text,color,dur)
 				local player = game.Players:FindFirstChild(target.Name)
 
 				for _,v in pairs(player.PlayerGui.simpleSuite.Notifications:GetChildren()) do
-
 					notification_number = notification_number +1
-
 				end
 
 
