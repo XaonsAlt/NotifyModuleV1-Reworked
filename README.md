@@ -1,5 +1,5 @@
 # NotifyModuleV2
-The branch is for Community Driven updates.
+The branch is for Community Driven stable-only updates.
 
 Features added that was not before:
 ~Custom colors can be used by sending a table of color values like so:
